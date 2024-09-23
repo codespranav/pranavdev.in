@@ -11,7 +11,16 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#fff",
+        secondary: "#0B1215",
+        heading: "#F1C40F",
+        paraColour: "#D7D7D7"
       },
+      backgroundColor: {
+        primary: "#0B1215",
+        secondary: "#F1C40F",
+
+      }
     },
   },
   plugins: [],

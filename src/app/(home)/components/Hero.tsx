@@ -4,7 +4,7 @@ import profilePic from '../../../assets/pranav_Dev.png'
 
 const Hero = () => {
   return (
-    <section>
+    <section className='px-4 md:px-0'>
       <div className='max-w-7xl mx-auto grid md:grid-cols-2 grid-cols-1 items-center justify-items-center gap-14'>
         <div className="welcometext ">
           <h1 className='text-4xl leading-tight text-heading'>Hii! I'm Pranav <br /><span className='text-white'>Freealance Web Developer</span> <br /><span className='text-white'>based in India.</span></h1>

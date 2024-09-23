@@ -9,17 +9,17 @@ const Navbar = () => {
         {name: "Works", link: "/"},
     ]
   return (
-    <header className='py-8 shadow-md'>
+    <header className='py-8 shadow-md px-4 md:px-0'>
         <nav className='flex justify-between items-center max-w-7xl m-auto relative'>
             <div className="logo font-[500] ml-12 cursor-pointer">
                 <span>PRANAV SINGH</span>
             </div>
             <div className="circle w-10 h-10 text-xl cursor-pointer bg-secondary rounded-full absolute left-0 flex justify-center items-center text-secondary font-bold">Pr</div>
-            <div className="navigation text-[15px]">
+            <div className="navigation text-[15px] hidden md:block">
                 <ul className='flex space-x-6 items-center'>
                     {navigationLinks.map((items, index)=>(
                         <li>
-                            <Link href= {items.link}>{items.name}</Link>
+                            <Link href= {items.link} className='navanchor'>{items.name}</Link>
                         </li>
                     ))}
                 </ul>

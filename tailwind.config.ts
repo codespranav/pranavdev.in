@@ -14,13 +14,12 @@ const config: Config = {
         primary: "#fff",
         secondary: "#0B1215",
         heading: "#FFAe42",
-        paraColour: "#D7D7D7"
+        paraColour: "#B5b5b5"
       },
       backgroundColor: {
         primary: "#0B1215",
         secondary: "#F1C40F",
-
-      }
+      },
     },
   },
   plugins: [],

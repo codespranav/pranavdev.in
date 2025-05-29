@@ -9,7 +9,7 @@ const Hero = () => {
     <section className='px-4 md:px-0'>
       <div className='max-w-7xl mx-auto grid md:grid-cols-2 grid-cols-1 items-center justify-items-center gap-14 border-b border-neutral-800 pb-24'>
         <div className="welcometext">
-          <h1 className='text-4xl leading-tight text-heading'>Hii! I'm Pranav!</h1>
+          <h1 className='text-4xl leading-tight text-heading'>Hii! I&apos;m Pranav!</h1>
           <h1 className='text-4xl font-bold'> <Typewriter
                     options={{
                         strings: ['Freealance Web Developer', 'Freealance App Developer'],
@@ -25,7 +25,7 @@ const Hero = () => {
 
           <div className="ctaction mt-5">
             <button className='bg-secondary w-44 h-12 rounded-full text-secondary font-semibold  '>View My Portfolio</button>
-            <button className='bg-none border border-gray-100 w-44 h-12 rounded-full text-primary font-semibold ml-4 hover:bg-secondary hover:text-secondary transition-all'>Let's Talk</button>
+            <button className='bg-none border border-gray-100 w-44 h-12 rounded-full text-primary font-semibold ml-4 hover:bg-secondary hover:text-secondary transition-all'>Let&apos;s Talk</button>
           </div>
 
           {/* TODO re desogm this */}

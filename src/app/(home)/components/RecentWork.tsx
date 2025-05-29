@@ -14,7 +14,7 @@ const RecentWork = () => {
                         loop: true,
                     }}
                 /></h1>
-                <p>Here are a few past design projects I've worked on. Want to see more? Email me.</p>
+                <p>Here are a few past design projects I&apos;ve worked on. Want to see more? Email me.</p>
             </div>
         </section>
     )

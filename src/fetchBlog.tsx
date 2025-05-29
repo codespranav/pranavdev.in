@@ -1,9 +1,11 @@
 "use client";
 import useSWR from 'swr';
 
-const fetcher = (...args: any[]) => fetch(...args).then(res => res.json());
+const fetcher = (url: string, init?: RequestInit) => fetch(url, init).then(res => res.json());
 
 export const useFetchBlog = () => {
-  const { data, error, isLoading } = useSWR('/api/apidata', fetcher);
-  return { data, error, isLoading };
+  const { data, error, isValidating } = useSWR('/api/apidata', fetcher);
+  const isLoading = !error && !data;
+
+  return { data, error, isLoading, isValidating };
 };

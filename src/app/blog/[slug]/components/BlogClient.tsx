@@ -29,7 +29,7 @@ export const BlogClient = ({ slug }: { slug: string }) => {
           <h1 className='text-4xl font-semibold'>{blog.title}</h1>
           <div className="belowtext mt-4 flex items-center gap-4">
             <span className='flex gap-2 items-center cursor-pointer hover:text-heading'>
-              <User /> Pranav Singh
+              <User /> Pranav
             </span>
             <span>.</span>
             <span className='text-paraColour'>March 22, 2024</span>

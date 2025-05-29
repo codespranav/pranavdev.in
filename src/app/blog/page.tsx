@@ -1,13 +1,11 @@
 "use client"
-import { useFetchBlog } from '@/fetchBlog'
-import Image from 'next/image'
+import { useFetchBlog } from '../../fetchBlog'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
-import useSWR from 'swr'
+import React from 'react'
 import LoadingSpinner from '../components/LoadingSpinner'
 
 
-const page = () => {
+const Page = () => {
     // const fetcher = (...args: any[]) => fetch(...args).then(res => res.json())
     // const { data, error, isLoading } = useSWR('/api/apidata', fetcher)
 
@@ -31,7 +29,7 @@ const page = () => {
                 <h2 className="text-4xl font-bold text-white">Coding Articles</h2>
             </div>
             <div className='grid md:grid-cols-3 grid-cols-1 gap-7 justify-items-center mt-8'>
-                {data.blogs.map((item: any, index: number)=>(
+                {data.blogs.map((item, index: number)=>(
                     <div key={index} className=' max-w-96 rounded-md bg-[#1C1C1C]'>
                         {item.thumb ? <img src={item.thumb} alt="" className=' aspect-video mb-4 rounded-t-lg'/>: <img src="https://res.cloudinary.com/bytesizedpieces/image/upload/v1656084931/article/a-how-to-guide-on-making-an-animated-loading-image-for-a-website/animated_loader_gif_n6b5x0.gif" alt="" className=' aspect-video mb-4 rounded-t-lg'/>}
                         <div className="content px-4 py-4">
@@ -48,4 +46,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

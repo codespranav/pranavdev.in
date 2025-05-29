@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="navigation text-[15px] hidden md:block">
                 <ul className='flex space-x-6 items-center'>
                     {navigationLinks.map((items, index)=>(
-                        <li>
+                        <li key={index}>
                             <Link href= {items.link} className='navanchor'>{items.name}</Link>
                         </li>
                     ))}

@@ -1,7 +1,8 @@
 "use client"
+// import { ArrowRight, Code, LayoutPanelLeft, Plug } from "lucide-react";
 import { ArrowRight, Code, LayoutPanelLeft, Plug } from 'lucide-react';
+
 import React from 'react';
-import { motion } from "framer-motion"
 
 const Services = () => {
 
@@ -79,7 +80,7 @@ const Services = () => {
         </div>
         <div className='flex-1 flex md:justify-end justify-center items-center'>
         <div className='rounded-full w-12 h-12 border border-gray-100 text-center flex justify-center items-center group-hover:bg-secondary group-hover:-rotate-45 transform transition-transform duration-300'>
-    <ArrowRight className='' />
+    <ArrowRight/>
 </div>
 
         </div>

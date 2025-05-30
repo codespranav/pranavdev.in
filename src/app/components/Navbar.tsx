@@ -4,8 +4,7 @@ import React from 'react'
 const Navbar = () => {
     const navigationLinks = [
         {name: "Home", link: "/"},
-        {name: "About Me", link: "/"},
-        {name: "Services", link: "/"},
+        {name: "About Me", link: "/about"},
         {name: "Blog", link: "/blog"},
         {name: "Works", link: "/"},
     ]

@@ -1,7 +1,13 @@
 import { BlogClient } from "./components/BlogClient";
 
-const page = ({params}: {params: {slug: string}}) => {
-    return <BlogClient slug={params.slug} />; 
+interface PageProps {
+  params: {
+    slug: string;
+  };
 }
 
-export default page
+const Page = ({ params }: PageProps) => {
+  return <BlogClient slug={params.slug} />;
+};
+
+export default Page;

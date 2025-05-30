@@ -15,7 +15,9 @@ const Navbar = () => {
     </div> */}
         <nav className='flex justify-between items-center max-w-7xl m-auto relative'>
             <div className="logo font-[500] ml-12 cursor-pointer">
-                <span>PRANAV SINGH</span>
+                <Link href={"/"}>
+                    <span>PRANAV SINGH</span>
+                </Link>
             </div>
             <div className="circle w-10 h-10 text-xl cursor-pointer bg-secondary rounded-full absolute left-0 flex justify-center items-center text-secondary font-bold">Pr</div>
             <div className="navigation text-[15px] hidden md:block">

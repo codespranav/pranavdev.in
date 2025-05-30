@@ -1,38 +1,81 @@
+'use client'
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import clsx from 'clsx'
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false)
+
     const navigationLinks = [
-        {name: "Home", link: "/"},
-        {name: "About Me", link: "/about"},
-        {name: "Blog", link: "/blog"},
-        {name: "Works", link: "/"},
+        { name: "Home", link: "/" },
+        { name: "About Me", link: "/about" },
+        { name: "Blog", link: "/blog" },
+        { name: "Works", link: "/works" },
     ]
-  return (
-    <header className='py-8 shadow-md px-4 md:px-0'>
-        {/* <div className='fixed top-0 -z-10 h-full w-full'>
-        <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-    </div> */}
-        <nav className='flex justify-between items-center max-w-7xl m-auto relative'>
-            <div className="logo font-[500] ml-12 cursor-pointer">
-                <Link href={"/"}>
-                    <span>PRANAV SINGH</span>
-                </Link>
-            </div>
-            <div className="circle w-10 h-10 text-xl cursor-pointer bg-secondary rounded-full absolute left-0 flex justify-center items-center text-secondary font-bold">Pr</div>
-            <div className="navigation text-[15px] hidden md:block">
-                <ul className='flex space-x-6 items-center'>
-                    {navigationLinks.map((items, index)=>(
+
+    return (
+        <header className='py-6 shadow-md px-4  z-50'>
+            <nav className='flex justify-between items-center max-w-7xl mx-auto relative'>
+                
+                {/* Logo */}
+                <div className="font-bold text-lg cursor-pointer">
+                    <Link href="/">PRANAV SINGH</Link>
+                </div>
+
+                {/* Mobile Toggle Icon */}
+                <div className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                </div>
+
+                {/* Desktop Nav */}
+                <ul className='hidden md:flex space-x-6 items-center text-sm'>
+                    {navigationLinks.map((item, index) => (
                         <li key={index}>
-                            <Link href= {items.link} className='navanchor'>{items.name}</Link>
+                            <Link href={item.link} className='hover:text-blue-600 duration-200'>{item.name}</Link>
                         </li>
                     ))}
                 </ul>
+
+                {/* Desktop Button */}
+                <button className='hidden md:block bg-secondary text-secondary w-28 h-10 rounded-3xl'>
+                    Hire Me
+                </button>
+
+                {/* Circle Badge */}
+                <div className="hidden md:flex absolute left-0 w-10 h-10 bg-secondary text-secondary rounded-full justify-center items-center font-bold ml-4">
+                    Pr
+                </div>
+            </nav>
+
+            {/* Mobile Menu */}
+            <div
+                className={clsx(
+                    "transition-all duration-300 ease-in-out overflow-hidden md:hidden",
+                    isOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
+                )}
+            >
+                <ul className='flex flex-col space-y-4 px-2 text-sm py-2'>
+                    {navigationLinks.map((item, index) => (
+                        <li key={index}>
+                            <Link 
+                                href={item.link}
+                                onClick={() => setIsOpen(false)}
+                                className='block py-2 px-4 rounded hover:bg-gray-100'
+                            >
+                                {item.name}
+                            </Link>
+                        </li>
+                    ))}
+                    <li>
+                        <button className='w-full bg-secondary text-secondary h-10 rounded-3xl'>
+                            Hire Me
+                        </button>
+                    </li>
+                </ul>
             </div>
-                    <button className='bg-secondary w-28 h-10 rounded-3xl text-secondary '>Hire Me</button>
-        </nav>
-    </header>  
-  )
+        </header>
+    )
 }
 
 export default Navbar

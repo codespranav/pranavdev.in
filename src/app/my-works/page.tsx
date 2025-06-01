@@ -1,26 +1,49 @@
+"use client"
 import Image from "next/image";
 import portfolioImage from "@/app/assets/portfolioproject.png";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function MyWorks() {
-    const projects = [
-        {
-            id: 1,
-            title: "Portfolio Website",
-            description: "I build fast, responsive websites using the latest technologies, tailored to your needs. Whether it’s a simple site or a complex web app, I deliver high-quality solutions to enhance your online presence.",
-            image: portfolioImage,
-            liveLink: "#", // Replace with actual URL when available
-            techStack: ["Next.js", "Tailwind CSS", "React", "JavaScript"]
-        },
-        {
-            id: 2,
-            title: "Restaurant Website",
-            description: "A modern, responsive restaurant website featuring a full menu, table booking system, and contact form to enhance customer engagement and online visibility.",
-            image: "/assets/restaurant.png", // Replace with actual import if using static image
-            liveLink: "#",
-            techStack: ["HTML", "CSS", "JavaScript"]
-        },
-        // Add more projects as needed
-    ];
+    const [data, setData] = useState([]);
+
+    const fetchData = async () => {
+      try {
+        const resp = await fetch("https://683bd5ea28a0b0f2fdc58719.mockapi.io/api/v1/projects");
+        if (!resp.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const result = await resp.json();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+    
+    useEffect(() => {
+        fetchData();
+    }, []);
+    
+    console.log(data);
+    // const projects = [
+    //     {
+    //         id: 1,
+    //         title: "Portfolio Website",
+    //         description: "I build fast, responsive websites using the latest technologies, tailored to your needs. Whether it’s a simple site or a complex web app, I deliver high-quality solutions to enhance your online presence.",
+    //         image: portfolioImage,
+    //         liveLink: "#", // Replace with actual URL when available
+    //         techStack: ["Next.js", "Tailwind CSS", "React", "JavaScript"]
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Restaurant Website",
+    //         description: "A modern, responsive restaurant website featuring a full menu, table booking system, and contact form to enhance customer engagement and online visibility.",
+    //         image: "/assets/restaurant.png", // Replace with actual import if using static image
+    //         liveLink: "#",
+    //         techStack: ["HTML", "CSS", "JavaScript"]
+    //     },
+    //     // Add more projects as needed
+    // ];
     
     return (
         <div className="max-w-7xl mx-auto px-4 py-10">
@@ -35,12 +58,13 @@ export default function MyWorks() {
 
             {/* Projects Section */}
             {
-                projects.map((item, index)=>(
+                data.length!=0?
+                data.map((item, index)=>(
                     <div key={index} className="bg-[#1a1a1a] border border-slate-700 rounded-xl flex flex-col md:flex-row items-center gap-6 p-6 shadow-lg mb-2">
                     {/* Project Info */}
                     <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                        <p className="text-paraColour mb-4 max-w-md">{item.description}</p>
+                        <h3 className="text-xl font-semibold text-white mb-2">{item.projectName}</h3>
+                        <p className="text-paraColour mb-4 max-w-md">{item.projectDescription}</p>
                         <a
                             href="#"
                             className="inline-block mt-2 px-2 py-1 text-sm font-medium bg-white text-black rounded-full hover:bg-blue-700 transition"
@@ -59,7 +83,7 @@ export default function MyWorks() {
                         />
                     </div>
                 </div>
-                ))
+                )): <LoadingSpinner/>
             }
         
         </div>

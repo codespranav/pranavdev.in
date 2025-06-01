@@ -34,7 +34,7 @@ const Page = () => {
                         {item.thumb ? <img src={item.thumb} alt="" className=' aspect-video mb-4 rounded-t-lg'/>: <img src="https://res.cloudinary.com/bytesizedpieces/image/upload/v1656084931/article/a-how-to-guide-on-making-an-animated-loading-image-for-a-website/animated_loader_gif_n6b5x0.gif" alt="" className=' aspect-video mb-4 rounded-t-lg'/>}
                         <div className="content px-4 py-4">
                         <span className=' bg-secondary rounded-2xl p-3 mb-4 text-black font-semibold text-sm'>{item.category}</span>
-                        <Link href= {`blog/${item.id}`}><h3 className=' text-xl font-semibold mt-5 cursor-pointer hover:text-heading'>{item.title}</h3></Link>
+                        <Link href= {`blog/${item.id}`}><h3 className=' text-xl font-semibold mt-5 cursor-pointer hover:text-heading text-heading group-hover:text-black'>{item.title}</h3></Link>
                         <p className='text-sm leading-normal0 mt-2 text-paraColour'>{item.desc}</p>
                         </div>
                     </div>

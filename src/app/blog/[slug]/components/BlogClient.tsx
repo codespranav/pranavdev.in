@@ -26,22 +26,22 @@ export const BlogClient = ({ slug }: { slug: string }) => {
     <section className='max-w-7xl mx-auto mt-8'>
       <div className='md:flex px-4 space-x-12'>
         <div className='max-w-5xl'>
-          <h1 className='text-4xl font-semibold'>{blog.title}</h1>
+          <h1 className='text-4xl font-semibold text-heading'>{blog.title}</h1>
           <div className="belowtext mt-4 flex items-center gap-4">
-            <span className='flex gap-2 items-center cursor-pointer hover:text-heading'>
+            <span className='flex gap-2 items-center cursor-pointer text-white'>
               <User /> Pranav
             </span>
             <span>.</span>
-            <span className='text-paraColour'>March 22, 2024</span>
+            <span className='text-white'>March 22, 2024</span>
           </div>
           <div>
             <img src={blog.thumb} alt="" className='w-full mt-4 aspect-video' />
           </div>
-          <p>{blog.desc}</p>
+          <p className='text-white'>{blog.desc}</p>
         </div>
         <div>
-          <h3>Related Articles</h3>
-        </div>
+          <h3 className='text-white text-xl font-bold'>Related Articles</h3>
+        </div> 
       </div>
     </section>
   );

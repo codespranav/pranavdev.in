@@ -3,6 +3,8 @@ import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import clsx from 'clsx'
+import Image from 'next/image'
+import PranavLogo from "@/app/assets/pranav.builds logo.png"
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -19,12 +21,20 @@ const Navbar = () => {
             <nav className='flex justify-between items-center max-w-7xl mx-auto relative'>
                 
                 {/* Logo */}
-                <div className="font-bold text-lg cursor-pointer">
-                    <Link href="/">PRANAV SINGH</Link>
+                <div className=" font-medium text-lg cursor-pointer text-white group-hover:text-black">
+                    <Link href="/">
+                        <Image src={PranavLogo} alt='Pranav Singh Logo' quality={100} height={50} className='rounded-md'/>
+                    </Link>
                 </div>
 
+                 {/* Circle Badge */}
+                 {/* <div className="hidden md:flex absolute left-0 w-10 h-10 bg-secondary text-secondary rounded-full justify-center items-center font-bold ml-4">
+                    Ps
+                </div> */}
+
+
                 {/* Mobile Toggle Icon */}
-                <div className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+                <div className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </div>
 
@@ -32,7 +42,7 @@ const Navbar = () => {
                 <ul className='hidden md:flex space-x-6 items-center text-sm'>
                     {navigationLinks.map((item, index) => (
                         <li key={index}>
-                            <Link href={item.link} className='hover:text-blue-600 duration-200'>{item.name}</Link>
+                            <Link href={item.link} className='hover:text-blue-600 duration-200 text-white group-hover:text-black'>{item.name}</Link>
                         </li>
                     ))}
                 </ul>
@@ -42,10 +52,7 @@ const Navbar = () => {
                     Hire Me
                 </button>
 
-                {/* Circle Badge */}
-                <div className="hidden md:flex absolute left-0 w-10 h-10 bg-secondary text-secondary rounded-full justify-center items-center font-bold ml-4">
-                    Pr
-                </div>
+               
             </nav>
 
             {/* Mobile Menu */}
@@ -61,7 +68,7 @@ const Navbar = () => {
                             <Link 
                                 href={item.link}
                                 onClick={() => setIsOpen(false)}
-                                className='block py-2 px-4 rounded hover:bg-gray-100'
+                                className='block py-2 px-4 rounded hover:bg-gray-100 text-paraColour group-hover:text-black'
                             >
                                 {item.name}
                             </Link>

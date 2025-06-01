@@ -6,11 +6,11 @@ import Typewriter from 'typewriter-effect'
 
 const Hero = () => {
   return (
-    <section className='px-4 md:px-0 py-4 md:py-0'>
+    <section className='px-4 md:px-0 py-4 md:py-2'>
       <div className='max-w-7xl mx-auto grid md:grid-cols-2 grid-cols-1 items-center justify-items-center gap-14 border-b border-neutral-800 pb-24'>
         <div className="welcometext">
           <h1 className='text-4xl leading-tight text-heading'>Hii! I&apos;m Pranav!</h1>
-          <h1 className='text-4xl font-bold'> <Typewriter
+          <h1 className='text-4xl font-bold text-gray-300'> <Typewriter
             options={{
               strings: ['Freealance Web Developer', 'Freealance App Developer'],
               autoStart: true,
